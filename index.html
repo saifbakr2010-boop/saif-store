@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saif Store | شحن الألعاب</title>
+<meta name="description" content="Saif Store لشحن الألعاب وشراء UC وعملات تيك توك">
+<style>
+:root{--bg:#080b18;--panel:#11172b;--panel2:#171f3a;--cyan:#21d4fd;--purple:#a855f7;--text:#f7f8ff;--muted:#aab2cf}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 5%,#20235a 0,transparent 34%),radial-gradient(circle at 90% 30%,#251044 0,transparent 32%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif}
+header{padding:22px max(5vw,18px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff18;position:sticky;top:0;background:#080b18dd;backdrop-filter:blur(14px);z-index:3}
+.logo{font-size:25px;font-weight:900;letter-spacing:.4px}.logo span{color:var(--cyan);text-shadow:0 0 18px #21d4fd88}
+button,a{font:inherit}.admin{border:1px solid #a855f788;color:white;background:#a855f722;padding:10px 15px;border-radius:12px;cursor:pointer}
+main{max-width:1100px;margin:auto;padding:50px 18px}.hero{text-align:center;padding:35px 0 48px}.tag{display:inline-block;color:var(--cyan);border:1px solid #21d4fd66;background:#21d4fd12;padding:8px 14px;border-radius:99px;font-size:13px}
+h1{font-size:clamp(34px,7vw,60px);margin:18px 0 12px;line-height:1.2}.glow{background:linear-gradient(90deg,var(--cyan),#fff,var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:17px;line-height:1.9;margin:0 auto;max-width:650px}
+.section-title{display:flex;align-items:center;gap:12px;margin:22px 0}.section-title:before{content:"";width:5px;height:28px;border-radius:8px;background:linear-gradient(var(--cyan),var(--purple))}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}.card{background:linear-gradient(145deg,#171f3a,#0e1428);border:1px solid #8b9bff25;border-radius:20px;padding:22px;box-shadow:0 12px 35px #0004}.symbol{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:25px;background:linear-gradient(135deg,#21d4fd30,#a855f740);border:1px solid #ffffff18}
+.card h3{margin:17px 0 8px}.card p{color:var(--muted);font-size:14px;min-height:40px;line-height:1.7}.price{font-weight:800;color:var(--cyan);font-size:20px;margin:14px 0}
+.buy{display:block;text-align:center;text-decoration:none;color:#06101b;font-weight:900;background:linear-gradient(90deg,var(--cyan),#8b9cff);padding:12px;border-radius:12px}
+.note{color:var(--muted);font-size:13px;line-height:1.8;margin-top:24px}.contact{margin-top:35px;text-align:center;padding:28px;background:#a855f714;border:1px solid #a855f744;border-radius:20px}
+footer{text-align:center;color:#7e89aa;padding:25px;border-top:1px solid #ffffff14;font-size:13px}
+dialog{border:1px solid #8b9bff55;background:#11172b;color:white;border-radius:18px;width:min(420px,calc(100% - 28px));padding:24px}dialog::backdrop{background:#000b}input{width:100%;padding:12px;margin:8px 0 14px;border-radius:10px;border:1px solid #667099;background:#080d1d;color:white}.actions{display:flex;gap:10px}.actions button{flex:1;padding:11px;border:0;border-radius:10px;cursor:pointer}.primary{background:linear-gradient(90deg,var(--cyan),#9d8bff);font-weight:bold}.secondary{background:#28314d;color:white}.admin-list{display:grid;gap:10px}.admin-row{display:grid;grid-template-columns:1fr 110px;gap:8px;align-items:center}.admin-row input{margin:0}
+@media(max-width:600px){header{padding:16px}.logo{font-size:21px}main{padding-top:25px}.hero{padding-top:25px}}
+</style>
+</head>
+<body>
+<header><div class="logo">SAIF <span>STORE</span></div><button class="admin" id="openAdmin">لوحة التحكم ⚙</button></header>
+<main>
+<section class="hero"><span class="tag">شحن سريع • طلب مباشر عبر واتساب</span><h1>اشحن لعبتك<br><span class="glow">بسهولة وأمان</span></h1><p>أهلاً بيك في Saif Store — اختار الخدمة والباقة المناسبة، واضغط اطلب الآن علشان تبعت طلبك مباشرة على واتساب.</p></section>
+<h2 class="section-title">خدماتنا</h2>
+<div class="grid" id="products"></div>
+<p class="note">الأسعار المعروضة قابلة للتعديل من لوحة التحكم. تأكيد السعر النهائي وتفاصيل الشحن بيكون من خلال واتساب.</p>
+<section class="contact"><h2>محتاج مساعدة؟</h2><p style="color:var(--muted)">كلمنا مباشرة على واتساب وهنساعدك في طلبك.</p><a class="buy" style="display:inline-block;padding-inline:28px" href="https://wa.me/201555239095" target="_blank" rel="noopener">تواصل عبر واتساب</a></section>
+</main>
+<footer>© <span id="year"></span> Saif Store — جميع الحقوق محفوظة</footer>
+<dialog id="loginDialog"><h3>دخول لوحة التحكم</h3><p style="color:var(--muted)">أدخل كلمة المرور لتعديل الأسعار.</p><input id="password" type="password" placeholder="كلمة المرور"><div class="actions"><button class="primary" id="login">دخول</button><button class="secondary" id="cancelLogin">إلغاء</button></div><p id="loginError" style="color:#ff8b9a"></p></dialog>
+<dialog id="adminDialog"><h3>تعديل الأسعار</h3><p style="color:var(--muted);font-size:13px">التعديلات محفوظة في هذا المتصفح فقط في النسخة التجريبية.</p><div class="admin-list" id="adminList"></div><div class="actions" style="margin-top:18px"><button class="primary" id="save">حفظ الأسعار</button><button class="secondary" id="closeAdmin">إغلاق</button></div></dialog>
+<script>
+const WHATSAPP="201555239095";
+// غيّر كلمة المرور قبل النشر. هذه حماية تجريبية داخل المتصفح وليست مناسبة لحماية متجر فعلي.
+const ADMIN_PASSWORD="CHANGE_ME";
+const defaults=[
+ {id:"uc60",name:"PUBG Mobile — 60 UC",desc:"شحن شدات ببجي موبايل",price:"55 جنيه",icon:"🎮"},
+ {id:"uc325",name:"PUBG Mobile — 325 UC",desc:"باقة شدات ببجي موبايل",price:"270 جنيه",icon:"🪂"},
+ {id:"uc660",name:"PUBG Mobile — 660 UC",desc:"باقة شدات ببجي موبايل",price:"520 جنيه",icon:"💎"},
+ {id:"ttcoins",name:"عملات TikTok",desc:"شحن عملات تيك توك",price:"حسب الباقة",icon:"♪"},
+ {id:"games",name:"شحن ألعاب أخرى",desc:"اسألنا عن اللعبة والباقة المطلوبة",price:"تواصل للسعر",icon:"⚡"}
+];
+let products=JSON.parse(localStorage.getItem("saifPrices")||"null")||defaults;
+const el=id=>document.getElementById(id);
+function render(){el("products").innerHTML=products.map(p=>`<article class="card"><div class="symbol">${p.icon}</div><h3>${p.name}</h3><p>${p.desc}</p><div class="price">${p.price}</div><a class="buy" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent("مرحباً Saif Store، أريد طلب: "+p.name+" — السعر المعروض: "+p.price)}" target="_blank" rel="noopener">اطلب الآن عبر واتساب</a></article>`).join("");}
+render();el("year").textContent=new Date().getFullYear();
+el("openAdmin").onclick=()=>{el("password").value="";el("loginError").textContent="";el("loginDialog").showModal()};
+el("cancelLogin").onclick=()=>el("loginDialog").close();
+el("login").onclick=()=>{if(ADMIN_PASSWORD==="CHANGE_ME"){el("loginError").textContent="قبل النشر، غيّر CHANGE_ME داخل ملف index.html إلى كلمة مرور تختارها.";return;}if(el("password").value===ADMIN_PASSWORD){el("loginDialog").close();showAdmin();}else el("loginError").textContent="كلمة المرور غير صحيحة."};
+function showAdmin(){el("adminList").innerHTML=products.map((p,i)=>`<label class="admin-row"><span>${p.name}</span><input data-index="${i}" value="${p.price}" aria-label="السعر"></label>`).join("");el("adminDialog").showModal();}
+el("save").onclick=()=>{el("adminList").querySelectorAll("input").forEach(inp=>products[Number(inp.dataset.index)].price=inp.value.trim()||"تواصل للسعر");localStorage.setItem("saifPrices",JSON.stringify(products));render();el("adminDialog").close();};
+el("closeAdmin").onclick=()=>el("adminDialog").close();
+</script>
+</body></html>
